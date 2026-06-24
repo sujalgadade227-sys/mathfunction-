@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Traffic Light Simulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+            overflow-x: hidden;
+        }
+
+        .signal-container {
+            width: 120px;
+            background-color: #333;
+            padding: 20px 0;
+            border-radius: 20px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+
+        .box {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            background-color: #111;
+            transition: all 0.3s ease;
+            opacity: 0.3;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        #box1.active {
+            background-color: #ff3333;
+            opacity: 1;
+            box-shadow: 0 0 30px #ff3333;
+        }
+
+        #box2.active {
+            background-color: #ffcc00;
+            opacity: 1;
+            box-shadow: 0 0 30px #ffcc00;
+        }
+
+        #box3.active {
+            background-color: #33cc33;
+            opacity: 1;
+            box-shadow: 0 0 30px #33cc33;
+        }
+
+        .road {
+            width: 100%;
+            height: 100px;
+            background-color: #444;
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            border-top: 5px solid #fff;
+            border-bottom: 5px solid #fff;
+        }
+
+        .car {
+            width: 80px;
+            height: 40px;
+            background-color: #007bff;
+            border-radius: 10px 20px 10px 10px;
+            position: absolute;
+            bottom: 115px;
+            left: -100px;
+            transition: left 0.1s linear;
+        }
+
+        .car::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 15px;
+            width: 40px;
+            height: 20px;
+            background-color: #007bff;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .car::after {
+            content: '🔴 🔴';
+            font-size: 12px;
+            position: absolute;
+            bottom: -8px;
+            left: 10px;
+            word-spacing: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signal-container">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+    </div>
+
+    <div class="road"></div>
+    <div id="myCar" class="car"></div>
+
+    <script>
+        const redLight = document.getElementById("box1");
+        const yellowLight = document.getElementById("box2");
+        const greenLight = document.getElementById("box3");
+        const car = document.getElementById("myCar");
+
+        let currentLight = "RED"; 
+        let carPosition = -100;
+
+        function updateTrafficLight() {
+            redLight.classList.remove("active");
+            yellowLight.classList.remove("active");
+            greenLight.classList.remove("active");
+
+            if (currentLight === "RED") {
+                redLight.classList.add("active");
+                setTimeout(() => { currentLight = "GREEN"; }, 4000);
+            } 
+            else if (currentLight === "GREEN") {
+                greenLight.classList.add("active");
+                setTimeout(() => { currentLight = "YELLOW"; }, 4000);
+            } 
+            else if (currentLight === "YELLOW") {
+                yellowLight.classList.add("active");
+                setTimeout(() => { currentLight = "RED"; }, 1500);
+            }
+        }
+
+        updateTrafficLight();
+        setInterval(updateTrafficLight, 100);
+
+        function driveCar() {
+            if (currentLight === "RED" && carPosition >= window.innerWidth / 2 - 100 && carPosition < window.innerWidth / 2) {
+                
+            } else {
+                carPosition += 5;
+                if (carPosition > window.innerWidth) {
+                    carPosition = -100;
+                }
+            }
+            car.style.left = carPosition + "px";
+        }
+
+        setInterval(driveCar, 20);
+    </script>
+
+</body>
+</html>

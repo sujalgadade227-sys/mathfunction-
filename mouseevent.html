@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Listeners</title>
+    <style>
+    
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            user-select: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box" 
+         onmouseover="getOver()" 
+         onmouseout="getOut()" 
+         onmousedown="getMouseDown()">
+        Interact with me!
+    </div>
+
+    <script>
+        
+        let box = document.getElementById('box');
+
+       
+        function getOver() {
+            box.style.backgroundColor = "red";
+        }
+
+        function getOut() {
+            box.style.backgroundColor = "blue";
+        }
+
+        function getMouseDown() {
+            box.style.backgroundColor = "orange";
+        }
+    </script>
+
+</body>
+</html>
