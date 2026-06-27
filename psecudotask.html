@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Outer Divs with Inner Circles</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .outer-box {
+            height: 300px;
+            width: 300px;
+            background-color: whitesmoke;
+            border: 4px solid  black; 
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .outer-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 40px rgba(5, 196, 107, 0.4);
+        }
+
+        .inner-circle {
+            width: 90px;
+            height: 90px;
+            background-color: #05c46b; 
+            border-radius: 50%; 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .outer-box:hover .inner-circle {
+            transform: scale(1.2);
+            box-shadow: 0 14px 24px rgba(5, 196, 107, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+       
+        
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+        <div class="outer-box">
+            <div class="inner-circle"></div>
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>
