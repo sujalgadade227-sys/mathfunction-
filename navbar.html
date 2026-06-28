@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            background-image: linear-gradient(135deg, #0f172a, #1e293b); 
+            min-height: 2000px; 
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f8fafc; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        nav {
+            height: 70px; 
+            width: 85%;
+            max-width: 1200px; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            background: rgba(30, 41, 59, 0.7);
+           
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 20px; 
+            border-radius: 50px; 
+            padding: 0 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            color: #10b981; 
+            letter-spacing: -0.5px;
+        }
+
+        ul {
+            width: 350px;
+            display: flex;
+            list-style: none;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cbd5e1; 
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            color: red;
+        }
+        
+        .content-spacer {
+            margin-top: 130px; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>ForexFactory</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-spacer">
+        <h2>Welcome to ForexFactory</h2>
+        <p>Scroll down to see the fixed navigation bar in action.</p>
+    </div>
+
+    <script src="" async defer></script>
+</body>
+</html>
